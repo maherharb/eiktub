@@ -1,6 +1,6 @@
 # eiktub — Arabic Transliteration Engine
 
-**eiktub** converts phonetically typed Latin text into proper Arabic script in real time. Type the way you hear it — the engine figures out the correct Arabic characters, including vowels, hamza forms, and special letters.
+**eiktub** converts phonetically typed Latin text into proper Arabic script in real time. You type following the BATR transliteration rules — the engine maps each keystroke to the corresponding Arabic Unicode character.
 
 🟢 **[Try it live at eiktub.com](https://www.eiktub.com)**
 
@@ -14,7 +14,7 @@ The engine intercepts keystrokes and maps them to Arabic Unicode characters usin
 - Short and long vowels (حركات وأحرف العلة)
 - Shadda / doubled consonants (شدة)
 - Tanwin in all three forms (تنوين)
-- Hamza in all positions and shapes (همزة) — chosen automatically based on context
+- Hamza in all positions and shapes (همزة) — correct form is determined by the vowel context you provide
 - Al-ta'rif (ال التعريف) with solar/lunar letter handling
 - Arabizi notation (numbers as Arabic letters: 3, 7, 2, etc.)
 - Alif maqsura, taa marbuta, sukun, madda
@@ -54,8 +54,8 @@ The engine intercepts keystrokes and maps them to Arabic Unicode characters usin
 
 ### Special rules
 
-- **Shadda**: type the same consonant twice — `muhammad` → محمّد
-- **Hamza**: use `e`, `2`, or `'` — the engine picks the correct shape automatically
+- **Shadda**: type the same consonant twice — `muHmmd` → محمّد
+- **Hamza**: use `e`, `2`, or `'` — the correct shape is determined by the surrounding vowels you type
 - **Al- (ال)**: use `Al-` — solar/lunar assimilation is handled automatically
 - **Dash separator**: use `-` to prevent two letters from being parsed as a digraph — `s-h` → سه (not ش)
 
@@ -65,9 +65,9 @@ The engine intercepts keystrokes and maps them to Arabic Unicode characters usin
 
 | Latin input | Arabic output |
 |-------------|---------------|
-| mrhba | مرحبا |
+| mrHbaa | مرحبا |
 | Al-ealam | العالم |
-| muhammad | محمّد |
+| muHmmd | محمّد |
 | samaae | سماء |
 | maaeaN | ماءً |
 | einsaan | إنسان |
@@ -100,7 +100,6 @@ eiktub_litepad.vowels = 1;   // 1 = show short vowel diacritics
 | File | Description |
 |------|-------------|
 | `eiktub_litepad.js` | Client-side JavaScript transliteration engine |
-| `BATRengine.cs` | Server-side C# port of the same engine (ASP.NET) |
 
 ---
 
